@@ -8,7 +8,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.sunRays.dao.CustomerDao;
-import com.sunRays.model.Customer;
+import com.sunRays.model.CustomerOneToOne;
 
 @Service("customerService")
 @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
@@ -18,25 +18,25 @@ public class CustomerServiceImpl implements CustomerService {
 	private CustomerDao customerDao;
 	
 	@Override
-	public Customer getCustomer(Integer custId) {
+	public CustomerOneToOne getCustomer(Integer custId) {
 		return customerDao.getCustomer(custId);
 	}
 
 	@Override
-	public List<Customer> geCustomerList() {
+	public List<CustomerOneToOne> geCustomerList() {
 		return customerDao.getCustomerList();
 	}
 
 	@Override
 	@Transactional(propagation = Propagation.REQUIRED, readOnly = false)
-	public void save(Customer customer) {
+	public void save(CustomerOneToOne customer) {
 		customerDao.save(customer);
 		
 	}
 
 	@Override
 	@Transactional(propagation = Propagation.REQUIRED, readOnly = false)
-	public void delete(Customer customer) {
+	public void delete(CustomerOneToOne customer) {
 		customerDao.delete(customer);
 		
 	}

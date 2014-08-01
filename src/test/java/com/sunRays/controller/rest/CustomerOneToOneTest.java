@@ -1,42 +1,30 @@
 package com.sunRays.controller.rest;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.WebApplicationException;
-import javax.ws.rs.core.Response;
-import javax.ws.rs.core.Response.Status;
-
+import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Component;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.sunRays.model.CustomerOneToOne;
 import com.sunRays.model.CustomerDetailOneToOne;
 import com.sunRays.service.CustomerService;
 
-@Component
-@Scope("prototype")
-@Path("/customer")
-public class CustomerRestController {
-
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration({"/applicationContext.xml"})
+public class CustomerOneToOneTest {
 	@Autowired
 	private CustomerService customerService;
 	
-	@GET
-	@Path("/hello/{custId}")
-	 public void get(@PathParam ("custId") String custId){
-		CustomerOneToOne cust= null;
-		 try{
-			 if(custId!=null && custId.length()>0){
-				 cust=customerService.getCustomer(Integer.parseInt(custId));
-				 showCust(cust);
-			 }
-		 } catch (IllegalArgumentException e) {
-		      throw new WebApplicationException(Response.status(Status.BAD_REQUEST).entity( e.getMessage() ).build());
-		 }
-	 }
-
+	@Test
+	public void testGetCustomerInteger(){
+		Integer custId=101;
+		//Customer expected = new Customer();
+		//expected.setCustId(custId);
+		CustomerOneToOne cust=customerService.getCustomer(custId);
+		showCust(cust);
+		
+	}
 	private void showCust(CustomerOneToOne cust) {
 		System.out.println("Id: "+cust.getCustId());
 		System.out.println("Name: "+cust.getCustName());
@@ -61,5 +49,4 @@ public class CustomerRestController {
 //		}
 		
 	}
-	
 }

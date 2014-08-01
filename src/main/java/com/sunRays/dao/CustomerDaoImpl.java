@@ -6,7 +6,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.sunRays.model.Customer;
+import com.sunRays.model.CustomerOneToOne;
 
 @Repository("customerDao")
 public class CustomerDaoImpl implements CustomerDao {
@@ -15,23 +15,23 @@ public class CustomerDaoImpl implements CustomerDao {
 	private SessionFactory sessionFactory;
 	
 	@Override
-	public Customer getCustomer(Integer custId) {
-		return (Customer) sessionFactory.getCurrentSession().get(Customer.class, custId);
+	public CustomerOneToOne getCustomer(Integer custId) {
+		return (CustomerOneToOne) sessionFactory.getCurrentSession().get(CustomerOneToOne.class, custId);
 	}
 
 	@Override
-	public List<Customer> getCustomerList() {
-		return (List<Customer>) sessionFactory.getCurrentSession().createCriteria(Customer.class).list();
+	public List<CustomerOneToOne> getCustomerList() {
+		return (List<CustomerOneToOne>) sessionFactory.getCurrentSession().createCriteria(CustomerOneToOne.class).list();
 	}
 
 	@Override
-	public void save(Customer customer) {
+	public void save(CustomerOneToOne customer) {
 		sessionFactory.getCurrentSession().saveOrUpdate(customer);
 		
 	}
 
 	@Override
-	public void delete(Customer customer) {
+	public void delete(CustomerOneToOne customer) {
 		sessionFactory.getCurrentSession().delete(customer);
 		
 	}

@@ -2,12 +2,12 @@ package com.sunRays.service;
 
 import java.util.List;
 
-import com.sunRays.model.Customer;
+import com.sunRays.model.CustomerOneToOne;
 
 public interface CustomerService {
 
-	Customer getCustomer(Integer custId);
-	List <Customer>  geCustomerList();
-	void save(Customer customer);
-	void delete(Customer customer);
+	CustomerOneToOne getCustomer(Integer custId);
+	List <CustomerOneToOne>  geCustomerList();
+	void save(CustomerOneToOne customer);
+	void delete(CustomerOneToOne customer);
 }

@@ -4,6 +4,10 @@ CustomerLog
 Project MenuApp used archetype:
 mvn archetype:generate -DgroupId=com.sunRays -DartifactId=MenuApp -DarchetypeArtifactId=maven-archetype-webapp -DinteractiveMode=false
 
+What is One-To-Many Association?
+One-to-many relationships occur when each record in TableA may have many linked records in TableB but each record in TableB may have only one corresponding record in TableA.
+
+
 Create DB & Table:
 ---------------------
 mysql -u root -p sunRays <Enter>

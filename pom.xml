@@ -49,6 +49,8 @@
 			<artifactId>powermock-module-junit4</artifactId>
 			<version>1.5.5</version>
 		</dependency>
+		
+		
 
         <!-- Spring framework -->
         <dependency>
@@ -89,7 +91,11 @@
 				<artifactId>spring-web</artifactId>
 				<version>${spring.version}</version>
 			</dependency>
-
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-test</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
 			<dependency>
 				<groupId>org.slf4j</groupId>
 				<artifactId>slf4j-log4j12</artifactId>

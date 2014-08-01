@@ -2,11 +2,11 @@ package com.sunRays.dao;
 
 import java.util.List;
 
-import com.sunRays.model.Customer;
+import com.sunRays.model.CustomerOneToOne;
 
 public interface CustomerDao {
-	Customer getCustomer(Integer custId);
-	List <Customer>  getCustomerList();
-	void save(Customer customer);
-	void delete(Customer customer);
+	CustomerOneToOne getCustomer(Integer custId);
+	List <CustomerOneToOne>  getCustomerList();
+	void save(CustomerOneToOne customer);
+	void delete(CustomerOneToOne customer);
 }
